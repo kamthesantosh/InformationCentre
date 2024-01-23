@@ -7,48 +7,57 @@
   <version>1.0</version>
   <name>InformationCentre</name>
   <url>http://maven.apache.org</url> 
+
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-    </dependency>
-	<dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>2.46.0</version>
+      <version>4.13.2</version> <!-- Updated JUnit version -->
+      <scope>test</scope>
     </dependency>
     <dependency>
-    <groupId>javax.servlet</groupId>
-    <artifactId>servlet-api</artifactId>
-    <version>2.5</version>
-    <scope>provided</scope>
-</dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>3.141.59</version> <!-- Updated Selenium version -->
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>3.1.0</version> <!-- Updated Servlet version -->
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
+
   <build>
     <finalName>InformationCentre</finalName>
-     <plugins>
-	     <plugin>
-	        <groupId>org.apache.maven.plugins</groupId>
-	        <artifactId>maven-failsafe-plugin</artifactId>
-	        <version>2.18.1</version>
-	        <executions>
-	          <execution>
-	            <goals>
-	              <goal>integration-test</goal>
-	              <goal>verify</goal>
-	            </goals>
-	          </execution>
-	        </executions>
-	        <configuration>	
-	        <excludes> 
-		        <exclude>**/ut/*/*Test.java</exclude>  
-		    </excludes>  
-		    <includes> 
-		        <include>**/*IT.java</include>  
-		    </includes>
-		    </configuration>
-	      </plugin>
-      </plugins>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>3.0.0-M5</version> <!-- Updated version of failsafe plugin -->
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <excludes>
+            <exclude>**/ut/*/*Test.java</exclude>
+          </excludes>
+          <includes>
+            <include>**/*IT.java</include>
+          </includes>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
